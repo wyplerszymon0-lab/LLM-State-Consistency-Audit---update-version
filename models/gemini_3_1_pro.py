@@ -1,7 +1,17 @@
+"""Model submission: Gemini 3.1 Pro Reasoning.
+
+Frozen output from the target model for the portfolio state-consistency
+scenario. Self-contained on purpose (hardcoded data, no imports from audit/)
+because this is what the model actually handed back — we don't get to
+refactor it, only score it.
+"""
+
 from collections import deque
 
+MODEL_NAME = "Gemini 3.1 Pro Reasoning"
 
-def solve_financial_challenge():
+
+def run() -> float:
     # Data: txn_id, portfolio_id, type(1=Buy, 2=Sell), qty, price
     txns = [
         (1, 101, 1, 10, 100), (2, 102, 1, 20, 200), (3, 101, 1, 10, 110),
@@ -76,5 +86,5 @@ def solve_financial_challenge():
     return round(cash + final_assets, 2)
 
 
-final_result = solve_financial_challenge()
-print(f"Final Total Portfolio Value: {final_result}")
+if __name__ == "__main__":
+    print(f"Final Total Portfolio Value: {run()}")

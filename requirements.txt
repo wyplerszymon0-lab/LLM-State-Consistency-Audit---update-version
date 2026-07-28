@@ -1,0 +1,1 @@
+pandas>=2.0  # only needed for data/generate_data.py (CSV export utility)
